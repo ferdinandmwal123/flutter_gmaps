@@ -9,13 +9,22 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   static const _initialCameraPosition =
       CameraPosition(target: LatLng(37.773972, -122.431297), zoom: 11.5);
+
+  GoogleMapController _googleMapController;
+
+  @override
+  void dispose() {
+    _googleMapController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: GoogleMap(
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-        initialCameraPosition: _initialCameraPosition),
+          myLocationButtonEnabled: false,
+          zoomControlsEnabled: false,
+          initialCameraPosition: _initialCameraPosition),
     );
   }
 }
