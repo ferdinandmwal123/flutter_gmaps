@@ -20,11 +20,16 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: GoogleMap(
           myLocationButtonEnabled: false,
           zoomControlsEnabled: false,
-          initialCameraPosition: _initialCameraPosition),
+          initialCameraPosition: _initialCameraPosition,
+          onMapCreated: (controller) => _googleMapController = controller,
+          ),
+          floatingActionButton: FloatingActionButton(
+            
+          ),
     );
   }
 }
