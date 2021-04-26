@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/presentation/map_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(),
+      home: MapScreen(),
     );
   }
 }
