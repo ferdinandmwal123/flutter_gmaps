@@ -32,6 +32,7 @@ class _MapScreenState extends State<MapScreen> {
           if(_origin != null) _origin,
           if(_destination != null) _destination
         },
+        onLongPress: _addMarker,
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
@@ -41,5 +42,8 @@ class _MapScreenState extends State<MapScreen> {
         child: const Icon(Icons.center_focus_strong),
       ),
     );
+  }
+  void _addMarker(LatLng pos){
+
   }
 }
