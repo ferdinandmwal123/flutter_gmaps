@@ -29,8 +29,8 @@ class _MapScreenState extends State<MapScreen> {
         initialCameraPosition: _initialCameraPosition,
         onMapCreated: (controller) => _googleMapController = controller,
         markers: {
-          if(_origin != null) _origin,
-          if(_destination != null) _destination
+          if (_origin != null) _origin,
+          if (_destination != null) _destination
         },
         onLongPress: _addMarker,
       ),
@@ -43,7 +43,17 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
-  void _addMarker(LatLng pos){
 
+  void _addMarker(LatLng pos) {
+    if (_origin == null || (_origin != null && _destination != null)) {
+      setState(() {
+        _origin = Marker(
+            markerId: const MarkerId('origin'),
+            infoWindow: const InfoWindow(title: 'Origin'),
+            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+            position: pos
+            );
+      });
+    } else {}
   }
 }
