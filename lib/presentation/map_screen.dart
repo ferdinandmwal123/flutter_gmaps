@@ -11,6 +11,8 @@ class _MapScreenState extends State<MapScreen> {
       CameraPosition(target: LatLng(37.773972, -122.431297), zoom: 11.5);
 
   GoogleMapController _googleMapController;
+  Marker _origin;
+  Marker _destination;
 
   @override
   void dispose() {
@@ -30,12 +32,10 @@ class _MapScreenState extends State<MapScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Colors.black,
-        onPressed: () => _googleMapController
-            .animateCamera(CameraUpdate.newCameraPosition(_initialCameraPosition)
-            ),
-            child: const Icon(Icons.center_focus_strong),
+        onPressed: () => _googleMapController.animateCamera(
+            CameraUpdate.newCameraPosition(_initialCameraPosition)),
+        child: const Icon(Icons.center_focus_strong),
       ),
-    
     );
   }
 }
