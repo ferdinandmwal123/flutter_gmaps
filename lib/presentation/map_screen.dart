@@ -60,6 +60,9 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         _destination = Marker(
           markerId: const MarkerId('destination'),
+          infoWindow: const InfoWindow(title: 'Destination'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          position: pos
         );
       });
     }
