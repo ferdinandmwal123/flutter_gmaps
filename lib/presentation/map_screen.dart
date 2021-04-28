@@ -27,6 +27,7 @@ class _MapScreenState extends State<MapScreen> {
         centerTitle: false,
         title: const Text('Google Maps'),
         actions: [
+          if(_origin != null)
           TextButton(
             onPressed: () => _googleMapController.animateCamera(
               CameraUpdate.newCameraPosition(
@@ -39,7 +40,19 @@ class _MapScreenState extends State<MapScreen> {
                 textStyle: const TextStyle(fontWeight: FontWeight.w600)),
             child: const Text('ORIGIN'),
           ),
-          TextButton()
+          if(_destination != null)
+          TextButton(
+             onPressed: () => _googleMapController.animateCamera(
+              CameraUpdate.newCameraPosition(
+                CameraPosition(
+                    target: _origin.position, zoom: 14.5, tilt: 50.0),
+              ),
+            ),
+            style: TextButton.styleFrom(
+                primary: Colors.green,
+                textStyle: const TextStyle(fontWeight: FontWeight.w600)),
+            child: const Text('DEST'),
+          )
         ],
       ),
       body: GoogleMap(
