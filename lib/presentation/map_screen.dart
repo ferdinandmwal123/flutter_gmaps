@@ -30,9 +30,14 @@ class _MapScreenState extends State<MapScreen> {
           TextButton(
             onPressed: () => _googleMapController.animateCamera(
               CameraUpdate.newCameraPosition(
-                CameraPosition(target: _origin.position)
-              )
+                CameraPosition(
+                    target: _origin.position, zoom: 14.5, tilt: 50.0),
+              ),
             ),
+            style: TextButton.styleFrom(
+                primary: Colors.green,
+                textStyle: const TextStyle(fontWeight: FontWeight.w600)),
+            child: const Text('ORIGIN'),
           ),
           TextButton()
         ],
@@ -73,11 +78,11 @@ class _MapScreenState extends State<MapScreen> {
     } else {
       setState(() {
         _destination = Marker(
-          markerId: const MarkerId('destination'),
-          infoWindow: const InfoWindow(title: 'Destination'),
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
-          position: pos
-        );
+            markerId: const MarkerId('destination'),
+            infoWindow: const InfoWindow(title: 'Destination'),
+            icon:
+                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+            position: pos);
       });
     }
   }
