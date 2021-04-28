@@ -56,6 +56,12 @@ class _MapScreenState extends State<MapScreen> {
         //reset destination marker
         _destination = null;
       });
-    } else {}
+    } else {
+      setState(() {
+        _destination = Marker(
+          markerId: const MarkerId('destination'),
+        );
+      });
+    }
   }
 }
