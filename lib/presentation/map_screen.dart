@@ -23,6 +23,20 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        title: const Text('Google Maps'),
+        actions: [
+          TextButton(
+            onPressed: () => _googleMapController.animateCamera(
+              CameraUpdate.newCameraPosition(
+                CameraPosition(target: _origin.position)
+              )
+            ),
+          ),
+          TextButton()
+        ],
+      ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
         zoomControlsEnabled: false,
