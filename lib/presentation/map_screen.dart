@@ -50,9 +50,11 @@ class _MapScreenState extends State<MapScreen> {
         _origin = Marker(
             markerId: const MarkerId('origin'),
             infoWindow: const InfoWindow(title: 'Origin'),
-            icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-            position: pos
-            );
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+                BitmapDescriptor.hueGreen),
+            position: pos);
+        //reset destination marker
+        _destination = null;
       });
     } else {}
   }
