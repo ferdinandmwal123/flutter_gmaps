@@ -9,20 +9,24 @@ class DirectionsRepository {
 
   final Dio _dio;
 
-  DirectionsRepository({Dio dio}): _dio = dio ?? Dio();
+  DirectionsRepository({Dio dio}) : _dio = dio ?? Dio();
 
   Future<Directions> getDirections({
     @required LatLng origin,
     @required LatLng destination,
-  }) async{
+  }) async {
     final response = await _dio.get(
       _baseUrl,
       queryParameters: {
         'origin': '${origin.latitude}, ${origin.longitude}',
-        'destination':'${destination.latitude}, ${destination.longitude}',
-        'key':googleAPIKey,
+        'destination': '${destination.latitude}, ${destination.longitude}',
+        'key': googleAPIKey,
       },
-  
     );
+
+    if (response.statusCode == 200) {
+      return Directions.fromMap(response.data);
+    }
+    return null;
   }
 }
