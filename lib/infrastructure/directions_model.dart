@@ -14,4 +14,8 @@ class Directions {
     @required this.totalDistance,
     @required this.totalDuration
   });
+
+  factory Directions.fromMap(Map<String,dynamic> map){
+    
+  }
 }
