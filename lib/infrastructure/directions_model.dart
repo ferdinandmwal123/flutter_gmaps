@@ -23,21 +23,24 @@ class Directions {
     final southwest = data['bounds']['southwest'];
 
     final bounds = LatLngBounds(
-        southwest: LatLng(southwest['lat'], southwest['lng']),
-        northeast: LatLng(northeast['lat'], northeast['lng']),
-        );
+      southwest: LatLng(southwest['lat'], southwest['lng']),
+      northeast: LatLng(northeast['lat'], northeast['lng']),
+    );
 
-        String distance = '';
-        String duration = '';
+    String distance = '';
+    String duration = '';
 
-        if((data['legs'] as List).isNotEmpty){
-          final leg = data['legs'][0];
-          distance = leg['distance']['text'];
-          duration = leg['duration']['text'];
+    if ((data['legs'] as List).isNotEmpty) {
+      final leg = data['legs'][0];
+      distance = leg['distance']['text'].toString();
+      duration = leg['duration']['text'].toString();
+    }
 
-        }
-
-
-        return 
+    return Directions(
+        bounds: bounds,
+        polylinePoints: PolylinePoints()
+            .decodePolyline(data['overview_polyline']['points'].toString()),
+        totalDistance: distance,
+        totalDuration: duration);
   }
 }
