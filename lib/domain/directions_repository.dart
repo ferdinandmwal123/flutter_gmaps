@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_gmaps/domain/.env.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_gmaps/infrastructure/directions_model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DirectionsRepository {
