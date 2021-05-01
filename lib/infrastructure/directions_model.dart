@@ -23,8 +23,8 @@ class Directions {
     final southwest = data['bounds']['southwest'];
 
     final bounds = LatLngBounds(
-      southwest: LatLng(southwest['lat'], southwest['lng']),
-      northeast: LatLng(northeast['lat'], northeast['lng']),
+      southwest: LatLng(southwest['lat'] as double, southwest['lng']as double),
+      northeast: LatLng(northeast['lat'] as double, northeast['lng']as double),
     );
 
     String distance = '';
