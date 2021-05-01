@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/domain/directions_repository.dart';
 import 'package:flutter_gmaps/infrastructure/directions_model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -99,6 +100,10 @@ class _MapScreenState extends State<MapScreen> {
                 BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
             position: pos);
       });
+
+      final directions = await DirectionsRepository().getDirections(
+          origin: _origin.position, destination: _destination.position);
+      setState(() => _info = directions);
     }
   }
 }
