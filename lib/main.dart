@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/presentation/map_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,8 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Google Maps',
       theme: ThemeData(
+        primaryColor: Colors.white,
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(),
+      home: MapScreen(),
     );
   }
 }
