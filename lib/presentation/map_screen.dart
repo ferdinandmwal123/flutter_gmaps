@@ -72,8 +72,9 @@ class _MapScreenState extends State<MapScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Colors.black,
-        onPressed: () => _googleMapController.animateCamera(
-            CameraUpdate.newCameraPosition(_initialCameraPosition)),
+        onPressed: () => _googleMapController.animateCamera(_info != null
+            ? CameraUpdate.newLatLngBounds(_info.bounds, 100.0)
+            : CameraUpdate.newCameraPosition(_initialCameraPosition)),
         child: const Icon(Icons.center_focus_strong),
       ),
     );
@@ -90,6 +91,7 @@ class _MapScreenState extends State<MapScreen> {
             position: pos);
         //reset destination marker
         _destination = null;
+        _info = null;
       });
     } else {
       setState(() {
