@@ -87,6 +87,13 @@ class _MapScreenState extends State<MapScreen> {
                             offset: Offset(0, 2),
                             blurRadius: 6.0)
                       ]),
+                      child: Text(
+                        '${_info.totalDistance}, ${_info.totalDuration}',
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600
+                        ),
+                      ),
                 ))
         ],
       ),
