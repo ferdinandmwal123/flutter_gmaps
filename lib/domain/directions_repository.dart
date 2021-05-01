@@ -26,7 +26,7 @@ class DirectionsRepository {
     );
 
     if (response.statusCode == 200) {
-      return Directions.fromMap(response.data);
+      return Directions.fromMap(response.data as Map<String, dynamic>);
     }
     return null;
   }

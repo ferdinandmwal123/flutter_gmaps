@@ -17,7 +17,7 @@ class Directions {
   factory Directions.fromMap(Map<String, dynamic> map) {
     if ((map['routes'] as List).isEmpty) return null;
 
-    final data = Map<String, dynamic>.from(map['routes'][0]);
+    final data = Map<String, dynamic>.from(map['routes'][0]as Map);
 
     final northeast = data['bounds']['northeast'];
     final southwest = data['bounds']['southwest'];
