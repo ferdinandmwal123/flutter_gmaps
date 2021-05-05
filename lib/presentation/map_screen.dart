@@ -71,8 +71,12 @@ class _MapScreenState extends State<MapScreen> {
               if (_destination != null) _destination
             },
             polylines: {
-              if(_info != null)
-              Polyline(polylineId: const PolylineId('overview_polyline'), color: Colors.red)
+              if (_info != null)
+                Polyline(
+                    polylineId: const PolylineId('overview_polyline'),
+                    color: Colors.red,
+                    width: 5,
+                    points: _info.polylinePoints.map((e) => LatLng(e.latitude, e.longitude)).toList())
             },
             onLongPress: _addMarker,
           ),
@@ -91,13 +95,11 @@ class _MapScreenState extends State<MapScreen> {
                             offset: Offset(0, 2),
                             blurRadius: 6.0)
                       ]),
-                      child: Text(
-                        '${_info.totalDistance}, ${_info.totalDuration}',
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
+                  child: Text(
+                    '${_info.totalDistance}, ${_info.totalDuration}',
+                    style: const TextStyle(
+                        fontSize: 18.0, fontWeight: FontWeight.w600),
+                  ),
                 ))
         ],
       ),
