@@ -83,8 +83,7 @@ class _MapScreenState extends State<MapScreen> {
             },
             onLongPress: _addMarker,
           ),
-          if (_info != null)
-            Positioned(
+          if (_info != null) Positioned(
                 top: 20.0,
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -99,11 +98,11 @@ class _MapScreenState extends State<MapScreen> {
                             blurRadius: 6.0)
                       ]),
                   child: Text(
-                    '${_info.totalDistance}, ${_info.totalDuration}',
+                    '${_info.totalDistance}, ${_info.totalDuration}'.toString(),
                     style: const TextStyle(
                         fontSize: 18.0, fontWeight: FontWeight.w600),
                   ),
-                ))
+                )) 
         ],
       ),
       floatingActionButton: FloatingActionButton(
