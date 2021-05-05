@@ -72,7 +72,7 @@ class _MapScreenState extends State<MapScreen> {
             },
             polylines: {
               if(_info != null)
-              Polyline(polylineId: const PolylineId('overview_polyline'))
+              Polyline(polylineId: const PolylineId('overview_polyline'), color: Colors.red)
             },
             onLongPress: _addMarker,
           ),
