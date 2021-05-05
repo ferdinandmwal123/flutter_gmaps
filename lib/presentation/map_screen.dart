@@ -71,7 +71,8 @@ class _MapScreenState extends State<MapScreen> {
               if (_destination != null) _destination
             },
             polylines: {
-              
+              if(_info != null)
+              Polyline(polylineId: const PolylineId('overview_polyline'))
             },
             onLongPress: _addMarker,
           ),
