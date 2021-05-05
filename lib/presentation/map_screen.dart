@@ -73,10 +73,13 @@ class _MapScreenState extends State<MapScreen> {
             polylines: {
               if (_info != null)
                 Polyline(
-                    polylineId: const PolylineId('overview_polyline'),
-                    color: Colors.red,
-                    width: 5,
-                    points: _info.polylinePoints.map((e) => LatLng(e.latitude, e.longitude)).toList())
+                  polylineId: const PolylineId('overview_polyline'),
+                  color: Colors.red,
+                  width: 5,
+                  points: _info.polylinePoints
+                      .map((e) => LatLng(e.latitude, e.longitude))
+                      .toList(),
+                )
             },
             onLongPress: _addMarker,
           ),
