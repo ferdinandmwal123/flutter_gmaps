@@ -70,10 +70,20 @@ class _MapScreenState extends State<MapScreen> {
               if (_origin != null) _origin,
               if (_destination != null) _destination
             },
+            polylines: {
+              if (_info != null)
+                Polyline(
+                  polylineId: const PolylineId('overview_polyline'),
+                  color: Colors.red,
+                  width: 5,
+                  points: _info.polylinePoints
+                      .map((e) => LatLng(e.latitude, e.longitude))
+                      .toList(),
+                )
+            },
             onLongPress: _addMarker,
           ),
-          if (_info != null)
-            Positioned(
+          if (_info != null) Positioned(
                 top: 20.0,
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -87,14 +97,12 @@ class _MapScreenState extends State<MapScreen> {
                             offset: Offset(0, 2),
                             blurRadius: 6.0)
                       ]),
-                      child: Text(
-                        '${_info.totalDistance}, ${_info.totalDuration}',
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                ))
+                  child: Text(
+                    '${_info.totalDistance}, ${_info.totalDuration}'.toString(),
+                    style: const TextStyle(
+                        fontSize: 18.0, fontWeight: FontWeight.w600),
+                  ),
+                )) 
         ],
       ),
       floatingActionButton: FloatingActionButton(
